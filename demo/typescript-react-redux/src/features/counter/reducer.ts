@@ -53,25 +53,4 @@ export default (id: number) => (((st:any, ac:CounterActions) => {
     return defaultReducer(st, ac);
   }
 }) as Reducer<CounterState, CounterActions>)
-//export default combineReducers<CounterState, CounterActions>({
-//  counter: (state = { currentValue: 0 }, action) => {
-//    switch (action.type) {
-//      case getType(counterActions.decreaseCounter):
-//        return { currentValue: state.currentValue - 1};
-//        case getType(counterActions.increaseCounter):
-//          return { currentValue: state.currentValue + 1};
-//          case getType(counterActions.resetCounter):
-//            return { currentValue: 0 };
-//      default:
-//        return state;
-//    }
-//  },
-//  isEnabled: (state = true, action) => {
-//    switch (action.type) {
-//      case getType(counterActions.setState):
-//        return action.payload;
-//      default:
-//        return state;
-//    }
-//  },
-//});
+

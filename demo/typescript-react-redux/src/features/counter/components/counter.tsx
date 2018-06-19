@@ -22,7 +22,5 @@ const mapDispatchToProps = (dispatch:any, props: {name:string, id:number}) => {
     submit: (act: (id:number) => any) => dispatch(act(props.id))
   }
 }
-//export default connect(mapStateToProps, {
-//        submit: (act: (id:number) => any) => act(1)
-//    })(Counter);
+
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
