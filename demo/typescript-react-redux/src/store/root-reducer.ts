@@ -6,8 +6,8 @@ import { counterReducer } from '../features/counter';
 
 const rootReducer = combineReducers({
   router: routerReducer,
-  counter1: counterReducer,
-  counter2: counterReducer,
+  counter1: counterReducer(1),
+  counter2: counterReducer(2),
 });
 
 export type RootState = StateType<typeof rootReducer>;

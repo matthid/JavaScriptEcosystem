@@ -14,58 +14,43 @@ export type CounterState = Readonly<{
   isEnabled: boolean
 }>;
 
-//var reducer = combineReducers<CounterState, CounterActions>({
-//    id: (state : number, action:CounterActions) => { return state; },
-//    counter: (state = { currentValue: 0 }, action:CounterActions) => {
-//      switch (action.type) {
-//        case getType(counterActions.decreaseCounter):
-//          return { currentValue: state.currentValue - 1};
-//          case getType(counterActions.increaseCounter):
-//            return { currentValue: state.currentValue + 1};
-//            case getType(counterActions.resetCounter):
-//              return { currentValue: 0 };
-//        default:
-//          return state;
-//      }
-//    },
-//    isEnabled: (state = true, action:CounterActions) => {
-//      switch (action.type) {
-//        case getType(counterActions.setState):
-//          return action.payload;
-//        default:
-//          return state;
-//      }
-//    },
-//  });
+var defaultReducer = combineReducers<CounterState, CounterActions>({
+    id: (state = 1, action:CounterActions) => state,
+    counter: (state = { currentValue: 0 }, action:CounterActions) => {
+      switch (action.type) {
+        case getType(counterActions.decreaseCounter):
+          return { currentValue: state.currentValue - 1};
+          case getType(counterActions.increaseCounter):
+            return { currentValue: state.currentValue + 1};
+            case getType(counterActions.resetCounter):
+              return { currentValue: 0 };
+        default:
+          return state;
+      }
+    },
+    isEnabled: (state = true, action:CounterActions) => {
+      switch (action.type) {
+        case getType(counterActions.setState):
+          return action.payload.isEnabled;
+        default:
+          return state;
+      }
+    },
+  });
 
-export default (((st:any, ac:CounterActions) => {
+export default (id: number) => (((st:any, ac:CounterActions) => {
   if (st === undefined){
     return {
-      id: 0,
+      id: id,
       counter: { currentValue: 0 },
       isEnabled: true
     }
   }
   var cst = st as CounterState;
-  if(cst === null || st.id != ac.payload){
+  if(cst === null || cst.id != ac.payload.counterId){
     return st;
   } else {
-    switch(ac.type){
-      case getType(counterActions.decreaseCounter):
-        return { ...st, counter: { currentValue: st.counter.currentValue - 1} };
-      case getType(counterActions.increaseCounter):
-        return { ...st, counter: { currentValue: st.counter.currentValue + 1} };
-      case getType(counterActions.resetCounter):
-        return { ...st, counter: { currentValue: 0 } };
-  },
-  isEnabled: (state = true, action) => {
-    switch (action.type) {
-      case getType(counterActions.setState):
-        return action.payload.isEnabled;
-      default:
-        return st;
-    }
-    //return reducer(st, ac);
+    return defaultReducer(st, ac);
   }
 }) as Reducer<CounterState, CounterActions>)
 //export default combineReducers<CounterState, CounterActions>({
