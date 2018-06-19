@@ -4,19 +4,19 @@ import { createStandardAction, createAction } from 'typesafe-actions';
 import { CounterModel } from './models';
 
 export const increaseCounter = createAction("INC", resolve => {
-  return () => resolve();
+  return (id:number) => resolve({ counterId: id });
 });
 
 export const resetCounter = createAction("RST", resolve => {
-  return () => resolve();
+  return (id:number) => resolve({ counterId: id });
 });
 
 export const decreaseCounter = createAction("DCR", resolve => {
-  return () => resolve();
+  return (id:number) => resolve({ counterId: id });
 });
 
 export const setState = createAction("SETSTATE", resolve => {
-  return (isEnabled: boolean) => resolve(isEnabled);
+  return (id:number, isEnabled: boolean) => resolve({ counterId: id, isEnabled });
 });
 //export const increaseCounter: () => {
 //  type: "INC";

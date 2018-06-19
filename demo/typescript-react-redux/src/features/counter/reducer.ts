@@ -29,7 +29,7 @@ export default combineReducers<CounterState, CounterActions>({
   isEnabled: (state = true, action) => {
     switch (action.type) {
       case getType(counterActions.setState):
-        return action.payload;
+        return action.payload.isEnabled;
       default:
         return state;
     }

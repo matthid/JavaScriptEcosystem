@@ -11,9 +11,9 @@ interface CounterProps { name: string; val: number; isEnabled: boolean; submit: 
 const Counter = (props: CounterProps) =>
     <div>
         <h1>Counter {props.name} is {props.val}!</h1>
-        <button disabled={!props.isEnabled} onClick={() => props.submit(counterActions.decreaseCounter())}>Decrease</button>
-        <button disabled={!props.isEnabled} onClick={() => props.submit(counterActions.increaseCounter())}>Increase</button>
-        <button onClick={() => props.submit(counterActions.resetCounter())}>Reset</button>
+        <button disabled={!props.isEnabled} onClick={() => props.submit(counterActions.decreaseCounter(0))}>Decrease</button>
+        <button disabled={!props.isEnabled} onClick={() => props.submit(counterActions.increaseCounter(0))}>Increase</button>
+        <button onClick={() => props.submit(counterActions.resetCounter(0))}>Reset</button>
     </div>
     ;
 
