@@ -57,6 +57,11 @@ export default (((st:any, ac:CounterActions) => {
         return { ...st, counter: { currentValue: st.counter.currentValue + 1} };
       case getType(counterActions.resetCounter):
         return { ...st, counter: { currentValue: 0 } };
+  },
+  isEnabled: (state = true, action) => {
+    switch (action.type) {
+      case getType(counterActions.setState):
+        return action.payload.isEnabled;
       default:
         return st;
     }

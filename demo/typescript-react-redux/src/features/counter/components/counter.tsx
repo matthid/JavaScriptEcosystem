@@ -24,5 +24,13 @@ const mapDispatchToProps = (dispatch:any, props: {name:string, id:number}) => {
     submit: (act: (id:number) => any) => bindActionCreators(act(props.id), dispatch)
   }
 }
+const Counter = (props: CounterProps) =>
+    <div>
+        <h1>Counter {props.name} is {props.val}!</h1>
+        <button disabled={!props.isEnabled} onClick={() => props.submit(counterActions.decreaseCounter(0))}>Decrease</button>
+        <button disabled={!props.isEnabled} onClick={() => props.submit(counterActions.increaseCounter(0))}>Increase</button>
+        <button onClick={() => props.submit(counterActions.resetCounter(0))}>Reset</button>
+    </div>
+    ;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
