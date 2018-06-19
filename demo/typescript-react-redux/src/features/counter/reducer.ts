@@ -20,10 +20,10 @@ var defaultReducer = combineReducers<CounterState, CounterActions>({
       switch (action.type) {
         case getType(counterActions.decreaseCounter):
           return { currentValue: state.currentValue - 1};
-          case getType(counterActions.increaseCounter):
-            return { currentValue: state.currentValue + 1};
-            case getType(counterActions.resetCounter):
-              return { currentValue: 0 };
+        case getType(counterActions.increaseCounter):
+          return { currentValue: state.currentValue + 1};
+        case getType(counterActions.resetCounter):
+          return { currentValue: 0 };
         default:
           return state;
       }
