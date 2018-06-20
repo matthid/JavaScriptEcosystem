@@ -162,7 +162,7 @@ The `<div>` element is often used as a container for other HTML elements to styl
 <header>
   Header
   <nav>Menu</nav>
-</nav>
+</header>
 <section>
   <article>
     Inhalt
