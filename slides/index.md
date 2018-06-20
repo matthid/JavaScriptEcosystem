@@ -220,6 +220,8 @@ https://www.w3schools.com/css
 - Downloading and adding .js files by hand?
 - Scale?
 
+<img src="images/dependency_hell.jpg" style="background: white;" width=400 />
+
 ---
 
 ### NPM (node package manager)!
@@ -247,6 +249,8 @@ tree shaking
 
 "build system"
 
+<img src="images/what-is-webpack.png" style="background: white;" width=600 />
+
 ---
 
 ### Managing code bases?
@@ -265,6 +269,8 @@ tree shaking
 - Refactoring
 - Transpiles to plain JavaScript in the version you choose (ES5 is compatible with most browsers)
 
+<img src="images/typescript.png" style="background: white;" width=200 />
+
 ---
 
 ### Modern UI Development: React and redux.js
@@ -273,6 +279,8 @@ tree shaking
 - all parts of the application are testable
 - not a lot of hidden "magic"
 - prevent side-effects
+
+<img src="images/react_redux.png" style="background: white;" width=700 />
 
 ' just look at the state
 
@@ -289,5 +297,5 @@ tree shaking
 
 ### Thank you!
 
-* Too many, see Sources.txt
+* Too many sources, see Sources.txt
 * Johannes, Matthias
